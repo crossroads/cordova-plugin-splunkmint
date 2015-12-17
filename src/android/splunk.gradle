@@ -1,0 +1,11 @@
+apply plugin: 'android'
+
+repositories {
+    maven {
+        url "https://mint.splunk.com/gradle/"
+    }
+}
+
+dependencies {
+    compile "com.splunk.mint:mint:4.4.0"
+}

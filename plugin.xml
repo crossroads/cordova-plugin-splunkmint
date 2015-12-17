@@ -10,13 +10,13 @@
     <engine name="cordova" version=">=4.0.0" />
   </engines>
 
-  <dependency id="com.splunk.mint" version=">=4.4.0"/>
-
   <js-module src="www/splunkmint.js" name="Splunkmint">
     <clobbers target="Splunkmint" />
   </js-module>
 
   <platform name="android">
+    <framework src="src/android/splunk.gradle" custom="true" type="gradleReference" />
+
     <source-file src="src/android/Splunkmint.java" target-dir="src/com/cordova/splunkmint" />
   </platform>
 </plugin>
