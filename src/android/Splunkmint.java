@@ -36,6 +36,8 @@ public class Splunkmint extends CordovaPlugin {
             Log.e("MintPlugin", "Failed to load meta-data, NameNotFound: " + e.getMessage());
         } catch (NullPointerException e) {
             Log.e("MintPlugin", "Failed to load meta-data, NullPointer: " + e.getMessage());
+        } catch (Exception e) {
+            Log.e("MintPlugin", "MintPlugin Exception: " + e.getMessage());
         }
 
         if (mintKeyFound) {
