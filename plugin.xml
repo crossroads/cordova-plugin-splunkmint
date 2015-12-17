@@ -10,11 +10,7 @@
     <engine name="cordova" version=">=4.0.0" />
   </engines>
 
-  <dependency>
-    <groupId>com.splunk.mint</groupId>
-    <artifactId>mint</artifactId>
-    <version>4.4.0</version>
-  </dependency>
+  <dependency id="com.splunk.mint" version=">=4.4.0"/>
 
   <js-module src="www/splunkmint.js" name="Splunkmint">
     <clobbers target="Splunkmint" />
