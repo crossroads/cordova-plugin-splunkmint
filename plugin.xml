@@ -14,8 +14,19 @@
     <clobbers target="Splunkmint"/>
   </js-module>
 
+  <preference name="MINT_APIKEY"/>
+
   <platform name="android">
     <framework src="src/android/splunk.gradle" custom="true" type="gradleReference" />
+
+    <source-file src="src/android/res/values/mint.xml" target-dir="res/values" />
+    <config-file target="res/values/mint.xml" parent="/*">
+      <string name="mint_apikey">$MINT_APIKEY</string>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <meta-data android:name="mint_apikey" android:value="@string/mint_apikey" />
+    </config-file>
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Splunkmint" >

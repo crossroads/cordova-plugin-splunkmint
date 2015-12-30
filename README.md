@@ -8,16 +8,11 @@ This plugin implements integration of Splunk MINT https://mint.splunk.com/
 
 #### Installation
 
-    cordova plugin add cordova-plugin-splunkmint
-
-#### Usage
-Initialize it on load of your application, using:
+    cordova plugin add cordova-plugin-splunkmint --variable MINT_APIKEY="<splunk_mint_api_key>"
 
 
-    Splunkmint.initiate("<your-splunk-mint-api-key>");
-    
 #### References:
 
-Official documentation: 
+Official documentation:
 * Requirements and installation for Android http://docs.splunk.com/Documentation/MintAndroidSDK/latest/DevGuide/Requirementsandinstallation
 * Add splunk mint to android project: http://docs.splunk.com/Documentation/MintAndroidSDK/latest/DevGuide/AddSplunkMINTtoyourproject

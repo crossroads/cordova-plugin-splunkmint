@@ -12,20 +12,27 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.util.Log;
+import android.os.Bundle;
 
 public class Splunkmint extends CordovaPlugin {
+
+  private static final String MINT_META_NAME = "mint_apikey";
 
   @Override
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
-  }
 
-  public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException
-  {
+    String mintApiKey = "";
 
     try {
-      String mintApiKey = args.getString(0);
+      ApplicationInfo ai = cordova.getActivity().getPackageManager().getApplicationInfo(
+          cordova.getActivity().getPackageName(),
+          PackageManager.GET_META_DATA);
+      Bundle bundle = ai.metaData;
+      mintApiKey = bundle.getString(MINT_META_NAME);
 
       if(mintApiKey != null && mintApiKey.length() != 0) {
         Mint.initAndStartSession(cordova.getActivity().getApplicationContext(), mintApiKey);
@@ -37,7 +44,5 @@ public class Splunkmint extends CordovaPlugin {
     } catch(Exception e) {
       Log.v("MintPlugin Error", e.getMessage());
     }
-
-    return true;
   }
 }
