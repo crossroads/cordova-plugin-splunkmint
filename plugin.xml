@@ -38,4 +38,23 @@
     <source-file src="src/android/Splunkmint.java" target-dir="src/org/apache/cordova/Splunkmint" />
 
   </platform>
+
+  <platform name="ios">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Splunk">
+        <param name="ios-package" value="CDVSplunk"/>
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/CDVSplunk.h" />
+    <source-file src="src/ios/CDVSplunk.m" />
+
+    <framework src="libs/ios/SplunkMint.framework" custom="true" />
+    <framework src="SystemConfiguration.framework" />
+    <framework src="CoreTelephony.framework" />
+    <framework src="WebKit.framework" />
+    <framework src="libz.dylib" />
+
+    <hook type="after_plugin_install" src="scripts/ios_after_plugin_install.rb"/>
+  </platform>
 </plugin>
